@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2023/01/09 20:41:50 (CST) daisuke>
+# Time-stamp: <2023/01/09 20:51:12 (CST) daisuke>
 #
 
 #
@@ -53,24 +53,18 @@ fi
 
 if [ $system = "NetBSD" ]
 then
-    cat=/bin/cat
     cp=/bin/cp
     expr=/bin/expr
-    pwd=/bin/pwd
-    rm=/bin/rm
     stat=/usr/bin/stat
 elif [ $system = "Linux" ]
 then
-    cat=/usr/bin/cat
     cp=/usr/bin/cp
     expr=/usr/bin/expr
-    pwd=/usr/bin/pwd
-    rm=/usr/bin/rm
     stat=/usr/bin/stat
 fi
 
 # list of commands to be used
-list_commands="$cat $cp $pwd $rm $stat"
+list_commands="$cp $expr $stat"
 
 #
 # functions
@@ -231,8 +225,6 @@ if [ $verbosity -gt 0 ]
 then
     echo "#"
     echo "# summary:"
-    echo "#"
-    echo "#  number of copied files = $#"
     echo "#"
     echo "#  list of copied files:"
     for file in $list_copied
