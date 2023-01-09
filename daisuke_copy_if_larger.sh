@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2023/01/09 20:51:12 (CST) daisuke>
+# Time-stamp: <2023/01/09 20:55:34 (CST) daisuke>
 #
 
 #
@@ -156,6 +156,7 @@ do
     # directory name and file name of source file
     dir_source=${path_source%/*}
     file_source=${path_source##*/}
+
     # directory name and file name of destination file
     file_destination=$file_source
     path_destination="${dir_destination}/${file_destination}"
@@ -202,12 +203,14 @@ do
 	size_destination=0
     fi
 
+    # priting file sizes of source file and destination file
     if [ $verbosity -gt 0 ]
     then
 	echo " source file size      = ${size_source} byte"
 	echo " destination file size = ${size_destination} byte"
     fi
 
+    # copying file
     if [ -e $path_destination ] && [ $size_destination -ge $size_source ]
     then
 	echo " file '${path_source}' is not copied!"
@@ -221,6 +224,7 @@ do
     fi
 done
 
+# printing a list of copied files
 if [ $verbosity -gt 0 ]
 then
     echo "#"
