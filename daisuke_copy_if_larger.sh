@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2023/01/09 20:55:34 (CST) daisuke>
+# Time-stamp: <2023/01/10 01:25:39 (CST) daisuke>
 #
 
 #
@@ -56,6 +56,11 @@ then
     cp=/bin/cp
     expr=/bin/expr
     stat=/usr/bin/stat
+elif [ $system = "FreeBSD" ]
+then
+    cp=/bin/cp
+    expr=/bin/expr
+    stat=/usr/bin/stat
 elif [ $system = "Linux" ]
 then
     cp=/usr/bin/cp
@@ -89,6 +94,11 @@ print_usage () {
     echo "   % $command /aaa/bbb/ccc.*.sh"
     echo "  copying files /aaa/bbb/ccc/*.c to /xxx/yyy/zzz"
     echo "   % $command -d /xxx/yyy/zzz /aaa/bbb/ccc.*.c"
+    echo ""
+    echo " Supported OS:"
+    echo "  NetBSD"
+    echo "  FreeBSD"
+    echo "  Debian GNU/Linux"
     echo ""
 }
 
@@ -178,7 +188,7 @@ do
     # finding file size of source file
     if [ -e $path_source ] && [ -f $path_source ]
     then
-	if [ $system = 'NetBSD' ]
+	if [ $system = 'NetBSD' ] || [ $system = 'FreeBSD' ]
 	then
 	    size_source=`$stat -f %z $path_source`
 	elif [ $system = 'Linux' ]
@@ -192,7 +202,7 @@ do
     # finding file size of destination file
     if [ -e $path_destination ] && [ -f $path_destination ]
     then
-	if [ $system = 'NetBSD' ]
+	if [ $system = 'NetBSD' ] || [ $system = 'FreeBSD' ]
 	then
 	    size_destination=`$stat -f %z $path_destination`
 	elif [ $system = 'Linux' ]
