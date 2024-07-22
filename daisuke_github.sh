@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2024/07/22 20:30:14 (UT+8) daisuke>
+# Time-stamp: <2024/07/22 20:58:55 (UT+8) daisuke>
 #
 
 ###########################################################################
@@ -171,20 +171,25 @@ do
 	# committing file
 	#
 
+	# file for comment
+	file_comment="/tmp/git_commit_comment.$$"
+	
 	# comment for committing
 	current_date=`$date +"%e/%b/%Y"`
 	if [ $action = 'add' ]
 	then
-	    comment="adding $file_commit on $current_date"
+	    comment="adding \"$file_commit\" on $current_date"
 	elif [ $action = 'delete' ]
 	then
-	    comment="deleting $file_commit on $current_date"
+	    comment="deleting \"$file_commit\" on $current_date"
 	fi
 
+	# writing comment to file
+	echo "$comment" > $file_comment
+
 	# command to be executed
-	command_git_2="$git commit -m \"$comment\""
+	command_git_2="$git commit -F $file_comment"
 	# executing command
-	echo "$command_git_2"
 	$command_git_2
 
 	#
@@ -194,7 +199,6 @@ do
 	# command to be executed
 	command_git_3="$git push"
 	# executing command
-	echo "$command_git_3"
 	$command_git_3
 
 	# printing executed commands
