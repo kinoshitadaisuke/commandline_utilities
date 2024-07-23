@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2024/07/22 20:58:55 (UT+8) daisuke>
+# Time-stamp: <2024/07/23 16:23:43 (UT+8) daisuke>
 #
 
 ###########################################################################
@@ -164,7 +164,6 @@ do
 	fi
 
 	# executing command
-	echo "$command_git_1"
 	$command_git_1
 
 	#
