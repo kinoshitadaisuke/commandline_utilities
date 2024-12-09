@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2022/04/24 09:56:59 (CST) daisuke>
+# Time-stamp: <2024/12/09 14:15:08 (UT+8) daisuke>
 #
 
 #
@@ -37,7 +37,8 @@ rm="/bin/rm"
 stat="/usr/bin/stat"
 convert="/usr/pkg/bin/convert"
 gs="/usr/pkg/bin/gs"
-list_commands="$expr $mkdir $rm $stat $convert $gs"
+magick="/usr/pkg/bin/magick"
+list_commands="$expr $mkdir $rm $stat $gs $magick"
 
 # existence check of commands
 for command in $list_commands
@@ -217,7 +218,7 @@ do
         echo "# now, converting image '$file_each_image' to PDF..."
         echo "#  $file_each_image ==> $file_each_pdf"
     fi
-    command_makepdf="$convert $path_each_image $file_each_pdf"
+    command_makepdf="$magick $path_each_image $file_each_pdf"
     $command_makepdf
     if [ $verbosity -gt 0 ]
     then
