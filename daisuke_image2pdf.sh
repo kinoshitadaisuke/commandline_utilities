@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2024/12/09 14:15:08 (UT+8) daisuke>
+# Time-stamp: <2025/01/09 16:39:16 (UT+8) daisuke>
 #
 
 #
@@ -13,6 +13,7 @@
 #
 #  version 1.0: 22/Apr/2022
 #  version 1.1: 24/Apr/2022
+#  version 1.2: 09/Jan/2025
 #
 
 #
