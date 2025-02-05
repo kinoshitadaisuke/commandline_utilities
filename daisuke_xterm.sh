@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2025/02/05 13:03:07 (UT+8) daisuke>
+# Time-stamp: <2025/02/05 13:11:58 (UT+8) daisuke>
 #
 
 #
@@ -60,7 +60,6 @@ while getopts "f:hx:v" args
 do
     case "$args" in
 	f)
-	    echo "$OPTARG"
 	    # choice of fonts (7x14, 8x16, 10x20, 12x24)
 	    if [ $OPTARG = "7x14" ]
 	    then
