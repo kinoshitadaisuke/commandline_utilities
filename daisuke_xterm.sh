@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2025/02/05 13:21:45 (UT+8) daisuke>
+# Time-stamp: <2025/02/06 15:54:40 (UT+8) daisuke>
 #
 
 #
@@ -162,6 +162,9 @@ then
 elif [ $name = "kichijoji" ]
 then
     opt_xterm_colour="-bg LemonChiffon"
+elif [ $name = "taoyuan" ]
+then
+    opt_xterm_colour="-bg seashell"
 fi
 
 #
