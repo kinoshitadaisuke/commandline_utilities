@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2024/07/21 00:20:23 (UT+8) daisuke>
+# Time-stamp: <2025/02/07 12:11:46 (UT+8) daisuke>
 #
 
 ###########################################################################
@@ -15,6 +15,7 @@
 #   author: Kinoshita Daisuke
 #
 #   version 1.0: 21/Jul/2024
+#   version 1.1: 07/Feb/2025
 #
 ###########################################################################
 
@@ -242,7 +243,8 @@ then
     print_parameters
 fi
 
-# executing LuaLaTeX command
+# executing LuaLaTeX command twice
+execute_lualatex
 execute_lualatex
 
 # printing parameters
