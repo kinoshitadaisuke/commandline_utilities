@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2025/02/06 15:54:40 (UT+8) daisuke>
+# Time-stamp: <2025/02/09 18:54:08 (UT+8) daisuke>
 #
 
 #
@@ -12,6 +12,7 @@
 # author: Kinoshita Daisuke
 #
 # version 1.0: 05/Feb/2025
+# version 1.1: 09/Feb/2025
 #
 
 #
@@ -61,26 +62,28 @@ do
     case "$args" in
 	f)
 	    # choice of fonts (7x14, 8x16, 10x20, 12x24)
-	    if [ $OPTARG = "7x14" ]
-	    then
-		opt_xterm_font="-fn 7x14"
-	    elif [ $OPTARG = "8x16" ]
-	    then
-		opt_xterm_font="-fn 8x16"
-	    elif [ $OPTARG = "10x20" ]
-	    then
-		opt_xterm_font="-fn 10x20"
-	    elif [ $OPTARG = "12x24" ]
-	    then
-		opt_xterm_font="-fn 12x24"
-	    else
+	    case "$OPTARG" in
+		7x14)
+		    opt_xterm_font="-fn 7x14"
+		    ;;
+		8x16)
+		    opt_xterm_font="-fn 8x16"
+		    ;;
+		10x20)
+		    opt_xterm_font="-fn 10x20"
+		    ;;
+		12x24)
+		    opt_xterm_font="-fn 12x24"
+		    ;;
+		*)
 		# printing error message
 		echo "ERROR:"
 		echo "ERROR: choice of font: \"7x14\" or \"8x16\" or \"10x20\" or \"12x24\""
 		echo "ERROR:"
 		# exit
 		exit 1
-	    fi
+		;;
+	    esac
 	    ;;
         h)
             # printing usage
@@ -90,24 +93,26 @@ do
             ;;
 	x)
 	    # choice of xterm command ("native" or "pkgsrc")
-	    if [ $OPTARG = "native" ]
-	    then
-		# native xterm
-		xterm="/usr/X11R7/bin/xterm"
-	    elif [ $OPTARG = "pkgsrc" ]
-	    then
-		# modular x11 xterm from pkgsrc
-		xterm="/usr/pkg/bin/xterm"
-	    else
-		# printing error message
-		echo "ERROR:"
-		echo "ERROR: choice of xterm: \"native\" or \"pkgsrc\""
-		echo "ERROR:"
-	    fi
+	    case "$OPTARG" in
+		native)
+		    # native xterm
+		    xterm="/usr/X11R7/bin/xterm"
+		    ;;
+		pkgsrc)
+		    # modular x11 xterm from pkgsrc
+		    xterm="/usr/pkg/bin/xterm"
+		    ;;
+		*)
+		    # printing error message
+		    echo "ERROR:"
+		    echo "ERROR: choice of xterm: \"native\" or \"pkgsrc\""
+		    echo "ERROR:"
+		    ;;
+	    esac
 	    ;;
 	v)
 	    # verbosity level
-	                verbosity=`$expr $verbosity + 1`
+	    verbosity=`$expr $verbosity + 1`
             ;;
         \?)
             # printing usage
@@ -144,29 +149,36 @@ name=`$hostname -s`
 #
 # background colour
 #
-if [ $name = "mitaka" ] || [ $name = "nb00" ]
-then
-    opt_xterm_colour="-bg bisque"
-elif [ $name = "nb01" ]
-then
-    opt_xterm_colour="-bg wheat"
-elif [ $name = "nb02" ]
-then
-    opt_xterm_colour="-bg PapayaWhip"
-elif [ $name = "nb03" ]
-then
-    opt_xterm_colour="-bg NavajoWhite"
-elif [ $name = "nb04" ]
-then
-    opt_xterm_colour="-bg PeachPuff"
-elif [ $name = "kichijoji" ]
-then
-    opt_xterm_colour="-bg LemonChiffon"
-elif [ $name = "taoyuan" ]
-then
-    opt_xterm_colour="-bg seashell"
-fi
-
+case "$name" in
+    mitaka|nb00)
+	opt_xterm_colour="-bg wheat"
+	;;
+    nb01)
+	opt_xterm_colour="-bg MistyRose"
+	;;
+    nb02)
+	opt_xterm_colour="-bg cornsilk"
+	;;
+    nb03)
+	opt_xterm_colour="-bg DearkSeaGreen1"
+	;;
+    nb04)
+	opt_xterm_colour="-bg azure"
+	;;
+    kichijoji)
+	opt_xterm_colour="-bg PeachPuff"
+	;;
+    taoyuan)
+	opt_xterm_colour="-bg honeydew"
+	;;
+    s3b)
+	opt_xterm_colour="-bg seashell"
+	;;
+    *)
+	opt_xterm_colour="-bg bisque"
+	;;
+esac
+	
 #
 # colours
 #
@@ -192,6 +204,12 @@ fi
 #  AliceBlue
 #  azure
 #  lavender
+#
+# light green
+#  honeydew
+#  honeydew2
+#  DarkSeaGreen1
+#  DarkSeaGreen2
 #
 # default
 #  AntiqueWhite
