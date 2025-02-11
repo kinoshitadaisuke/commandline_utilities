@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2025/02/10 23:38:29 (UT+8) daisuke>
+# Time-stamp: <2025/02/11 18:44:55 (UT+8) daisuke>
 #
 
 #
@@ -163,10 +163,10 @@ case "$name" in
 	opt_xterm_colour="-bg honeydew"
 	;;
     nb04)
-	opt_xterm_colour="-bg azure"
+	opt_xterm_colour="-bg PeachPuff"
 	;;
     kichijoji)
-	opt_xterm_colour="-bg PeachPuff"
+	opt_xterm_colour="-bg azure"
 	;;
     taoyuan)
 	opt_xterm_colour="-bg MintCream"
