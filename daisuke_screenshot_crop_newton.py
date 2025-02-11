@@ -1,7 +1,7 @@
 #!/usr/pkg/bin/python3.12
 
 #
-# Time-stamp: <2024/08/27 11:49:56 (UT+8) daisuke>
+# Time-stamp: <2025/02/11 14:04:01 (UT+8) daisuke>
 #
 
 # importing sys module
@@ -9,6 +9,7 @@ import sys
 
 # location of command "convert"
 command_convert = '/usr/pkg/bin/convert'
+command_magick = '/usr/pkg/bin/magick'
 
 # cropping region
 region = '1546x2024+1094+0'
@@ -28,7 +29,7 @@ for file_png in sys.argv:
     file_png2 = file_png[:-4] + 'c.png'
 
     # command to crop PNG file and create a TIFF file
-    command_crop = f"{command_convert} -crop {region} {file_png} {file_tiff}"
+    command_crop = f"{command_magick} -crop {region} {file_png} {file_tiff}"
 
     # printing commands
     print (f"# {file_png} ==> {file_tiff}")
@@ -36,7 +37,7 @@ for file_png in sys.argv:
     print (f"{command_crop}")
 
     # command to convert TIFF file into PNG file
-    command_tif2png = f"{command_convert} {file_tiff} {file_png2}"
+    command_tif2png = f"{command_magick} {file_tiff} {file_png2}"
 
     # printing commands
     print (f"# {file_tiff} ==> {file_png2}")
