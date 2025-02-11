@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# Time-stamp: <2025/02/10 23:43:59 (UT+8) daisuke>
+# Time-stamp: <2025/02/11 12:34:14 (UT+8) daisuke>
 #
 
 #
@@ -126,19 +126,19 @@ case "$name" in
 	opt_xsetroot="-solid teal"
 	;;
     nb01)
-	opt_xsetroot="-solid DarkViolet"
+	opt_xsetroot="-solid PaleTurquoise4"
 	;;
     nb02)
 	opt_xsetroot="-solid sienna4"
 	;;
     nb03)
-	opt_xsetroot="-solid LightSkyBlue4"
+	opt_xsetroot="-solid khaki4"
 	;;
     nb04)
-	opt_xsetroot="-solid DarkSlateGrey"
+	opt_xsetroot="-solid OliveDrab4"
 	;;
     kichijoji)
-	opt_xsetroot="-solid olive"
+	opt_xsetroot="-solid LightSkyBlue4"
 	;;
     taoyuan)
 	opt_xsetroot="-solid DeepSkyBlue4"
@@ -150,7 +150,7 @@ case "$name" in
 	opt_xsetroot="-solid SkyBlue4"
 	;;
     *)
-	opt_xsetroot="-solid bisque"
+	opt_xsetroot="-solid DarkSlateGrey"
 	;;
 esac
 	
